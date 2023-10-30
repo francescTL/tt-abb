@@ -28,7 +28,7 @@ $vertical-separation: 1rem;
   }
 
   // Card title
-  ion-card.home-card{
+  ion-card.home-card {
     box-shadow: none !important;
     ion-card-title.home-card-title {
       color: $abb-color-1;
@@ -36,7 +36,7 @@ $vertical-separation: 1rem;
     }
     ion-grid {
       padding: 0;
-  
+
       // Hint text
       ion-col.hint-text {
         color: $abb-color-2;
@@ -130,7 +130,7 @@ $vertical-separation: 1rem;
     min-height: 42px;
     font-size: 14px;
     --color: $abb-color-1;
-    
+
     // Dropdown selected item check icon
     ion-radio::part(container) {
       content: url("../../assets/check.svg");

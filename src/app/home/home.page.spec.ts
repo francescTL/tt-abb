@@ -1,6 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -45,7 +43,7 @@ describe('HomePage', () => {
   });
 
   it('should create and have default option selected', async () => {
-    const selectedValue = component.valueControl.value;
+    const selectedValue = component.form.get('customDropdown')!.value;
     expect(component).toBeTruthy();
     expect(selectedValue).toEqual(DROPDOWN_OPTIONS[0].value);
     expect(component.labelSignal()).toEqual(DROPDOWN_OPTIONS[0].label);

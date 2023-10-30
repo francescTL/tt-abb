@@ -22,8 +22,8 @@
                 >
                   <ng-container *ngTemplateOutlet="formTemplate"></ng-container>
                   <p class="selected-text">
-                    {{ 'HOME.SELECTED' | translate }}: 
-                    {{ labelSignal() | translate }}
+                    {{ 'HOME.SELECTED' | translate }}: {{ labelSignal() |
+                    translate }}
                   </p>
                 </ion-col>
                 <ion-col
@@ -47,7 +47,7 @@
 <!-- End home layout -->
 
 <!-- Custom dropdown template -->
-<ng-template #formTemplate [formGroup]="form" >
+<ng-template #formTemplate [formGroup]="form">
   <ion-select
     interface="popover"
     fill="outline"
@@ -55,7 +55,7 @@
     name="customDropdown"
     [placeholder]="'HOME.PLACEHOLDER' | translate"
     formControlName="customDropdown"
-    >
+  >
     <!-- Custom options (no track by needed, static list) -->
     <ng-container *ngFor="let option of options">
       <ion-select-option [value]="option.value">

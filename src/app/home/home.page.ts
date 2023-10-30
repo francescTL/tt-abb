@@ -1,6 +1,15 @@
 // Angular imports
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, OnDestroy, signal, Signal, WritableSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  OnDestroy,
+  signal,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   FormBuilder,
@@ -65,7 +74,7 @@ const DEFAULT_VALUE = DROPDOWN_OPTIONS[0];
     IonCardTitle,
     IonIcon,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage implements OnDestroy {
   // Select options
@@ -74,11 +83,13 @@ export class HomePage implements OnDestroy {
   // Select form control
 
   public form: FormGroup = this.fb.group({
-    customDropdown: [DEFAULT_VALUE.value, Validators.required]
-  })
+    customDropdown: [DEFAULT_VALUE.value, Validators.required],
+  });
 
   // Readonly signal for template text
-  public readonly labelSignal: WritableSignal<string> = signal(DEFAULT_VALUE.label)
+  public readonly labelSignal: WritableSignal<string> = signal(
+    DEFAULT_VALUE.label
+  );
 
   // Subscription to update signal
   private valueChangesSubscription: Subscription;
@@ -87,8 +98,11 @@ export class HomePage implements OnDestroy {
    * It handles value observable to set the new value in the signal
    */
   constructor(private fb: FormBuilder) {
-    this.valueChangesSubscription = this.form.get('customDropdown')!.valueChanges
-      .subscribe(value => this.labelSignal.set(this.getOptionLabel(value)));
+    this.valueChangesSubscription = this.form
+      .get('customDropdown')!
+      .valueChanges.subscribe((value) =>
+        this.labelSignal.set(this.getOptionLabel(value))
+      );
   }
 
   /**
@@ -110,6 +124,6 @@ export class HomePage implements OnDestroy {
     const selectedOption = this.options.find(
       ({ value }) => selectedValue === value
     );
-    return selectedOption ? selectedOption.label :  'HOME.ERROR.NOT_FOUND';
+    return selectedOption ? selectedOption.label : 'HOME.ERROR.NOT_FOUND';
   }
 }

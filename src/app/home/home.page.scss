@@ -1,0 +1,150 @@
+// Colors
+$abb-color-1: #1f1f1f;
+$abb-color-2: #686868;
+$abb-color-3: #333333;
+$abb-color-4: #dbdbdb;
+$abb-color-5: #3366ff;
+$abb-color-6: #ffffff;
+
+// Font sizes
+$abb-font-size-1: 20px;
+$abb-font-size-2: 16px;
+$abb-font-size-3: 14px;
+
+// Spaces
+$horizontal-separation: 2rem;
+$vertical-separation: 1rem;
+
+:host {
+  // Background image, aligned to be exactly as the image
+  ion-grid.home-content-grid {
+    height: 100%;
+
+    ion-row.home-content-row {
+      height: 100% !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+
+  // Card title
+  ion-card.home-card{
+    box-shadow: none !important;
+    ion-card-title.home-card-title {
+      color: $abb-color-1;
+      font-size: $abb-font-size-1;
+    }
+    ion-grid {
+      padding: 0;
+  
+      // Hint text
+      ion-col.hint-text {
+        color: $abb-color-2;
+        font-size: $abb-font-size-2;
+      }
+    }
+  }
+
+  ion-col.input-container {
+    padding-top: 0;
+    padding-left: 0;
+
+    // Selected label
+    p.selected-text {
+      color: $abb-color-1;
+      font-size: $abb-font-size-3;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    // Custom dropdown
+    ion-select[name="customDropdown"] {
+      --border-radius: 4px;
+      --border-width: 2px;
+      min-height: 42px;
+      --highlight-color-focused: #{$abb-color-5};
+      --highlight-color: #{$abb-color-5};
+    }
+
+    // Dropdown arrow (no focus)
+    ion-select[name="customDropdown"]::part(icon) {
+      content: url("../../assets/chevron.svg");
+      // As the icon has a color, I'm modifying the color with a filter rule
+      filter: hue-rotate(200deg) brightness(80%) saturate(120%);
+    }
+
+    // Dropdown arrow (focused)
+    ion-select[name="customDropdown"].select-expanded::part(icon) {
+      filter: none;
+    }
+
+    // Force 100% width
+    ion-select[name="customDropdown"]::part(container) {
+      width: 100%;
+    }
+  }
+
+  // Changes padding and border separator before medium width
+  @media (min-width: 200px) {
+    ion-content.home-content {
+      --background: url(../../assets/background.png) no-repeat center center /
+        cover;
+    }
+    ion-col.input-container {
+      border-right: 0;
+      border-bottom: 1px solid $abb-color-4;
+      padding-bottom: $vertical-separation;
+    }
+
+    ion-col.hint-text {
+      padding-top: $vertical-separation;
+      padding-left: 0;
+    }
+  }
+
+  // Changes padding and border separator after medium width
+  @media (min-width: 1080px) {
+    ion-content.home-content {
+      --background: url(../../assets/background.png) no-repeat fixed top 4rem
+        right 4rem #f5f5f5;
+    }
+    ion-col.input-container {
+      border-right: 1px solid $abb-color-4;
+      padding-right: $horizontal-separation;
+      border-bottom: 0;
+    }
+
+    ion-col.hint-text {
+      padding-left: $horizontal-separation;
+    }
+  }
+}
+
+// Customized popover
+::ng-deep ion-select-popover ion-list {
+  padding: 0;
+  border-radius: 4px;
+
+  ion-item {
+    min-height: 42px;
+    font-size: 14px;
+    --color: $abb-color-1;
+    
+    // Dropdown selected item check icon
+    ion-radio::part(container) {
+      content: url("../../assets/check.svg");
+      border: 0;
+      fill: #{$abb-color-6};
+    }
+  }
+
+  // Dropdown selected item background
+  ion-item.item-radio-checked {
+    --background: #{$abb-color-5} !important;
+
+    ::part(container) {
+      opacity: 1 !important;
+    }
+  }
+}

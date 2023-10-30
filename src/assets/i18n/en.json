@@ -1,0 +1,20 @@
+{
+    "HOME": {
+        "TITLE": "Custom dropdown",
+        "HINT": "This is a design example!!!",
+        "PLACEHOLDER": "Select an option",
+        "SELECTED": "Selected",
+        "OPTION": {
+            "TEST": "Custom Dropdown test",
+            "SECOND": "Second Dropdown option",
+            "THIRD": "Third Dropdown option",
+            "ANOTHER_ONE": "Another one",
+            "NOT_LESS_IMPORTANT": "But not less important",
+            "LATEST": "The latest option in the dropdown"
+        },
+        "ERROR": {
+            "NO_OPTION": "No option selected",
+            "NOT_FOUND": "Value not found"
+        }
+    }
+}

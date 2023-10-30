@@ -1,0 +1,68 @@
+<!-- Home layout -->
+<ion-content [fullscreen]="true" class="home-content">
+  <ion-grid class="home-content-grid">
+    <ion-row class="home-content-row">
+      <ion-col size-xl="6" size-lg="9" size-md="9" size-xs="12">
+        <!-- Home card -->
+        <ion-card class="home-card">
+          <ion-card-header>
+            <ion-card-title class="home-card-title">
+              {{ 'HOME.TITLE' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col
+                  size-xl="6"
+                  size-md="12"
+                  size-sm="12"
+                  size-xs="12"
+                  class="ion-align-self-center input-container"
+                >
+                  <ng-container *ngTemplateOutlet="formTemplate"></ng-container>
+                  <p class="selected-text">
+                    {{ 'HOME.SELECTED' | translate }}: 
+                    {{ labelSignal() | translate }}
+                  </p>
+                </ion-col>
+                <ion-col
+                  size-xl="6"
+                  size-md="12"
+                  size-sm="12"
+                  size-xs="12"
+                  class="hint-text"
+                >
+                  <p>{{ 'HOME.HINT' | translate }}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        <!-- End home card -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- End home layout -->
+
+<!-- Custom dropdown template -->
+<ng-template #formTemplate [formGroup]="form" >
+  <ion-select
+    interface="popover"
+    fill="outline"
+    mode="md"
+    name="customDropdown"
+    [placeholder]="'HOME.PLACEHOLDER' | translate"
+    formControlName="customDropdown"
+    >
+    <!-- Custom options (no track by needed, static list) -->
+    <ng-container *ngFor="let option of options">
+      <ion-select-option [value]="option.value">
+        <span class="option-label"> {{ option.label | translate }} </span>
+      </ion-select-option>
+    </ng-container>
+    <!-- End custom options -->
+  </ion-select>
+</ng-template>
+<!-- End custom dropdown template -->

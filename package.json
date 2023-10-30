@@ -1,8 +1,7 @@
 {
-  "name": "abbPrueba",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "francesctl-ttabb",
+  "version": "1.0.0",
+  "author": "Francesc Torrens Llabrés",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -65,5 +64,5 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "A technical test for ABB AMR"
 }
